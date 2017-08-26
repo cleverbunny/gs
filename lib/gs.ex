@@ -3,16 +3,14 @@ defmodule Gs do
   Documentation for Gs.
   """
 
-  @doc """
-  Hello world.
+  def post(spreadsheet_id, range, body) do
+    body = %{body: body}
 
-  ## Examples
+    url = "https://sheets.googleapis.com/v4/spreadsheets/#{spreadsheet_id}/values/#{range}:append?valueInputOption=USER_ENTERED"
 
-      iex> Gs.hello
-      :world
+    options = [{"Content-Type", "application/json"}]
 
-  """
-  def hello do
-    :world
+    json_encoded_body = Poison.encode!(body)
+    HTTPoison.post(url, json_encoded_body, options)
   end
 end
