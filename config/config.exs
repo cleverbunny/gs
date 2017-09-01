@@ -2,6 +2,14 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :goth,
+  json: "config/gs_config.json" |> Path.expand |> File.read!
+
+config :gs,
+  sheets_url: "https://sheets.googleapis.com/v4/spreadsheets",
+#Scope to view and manage your spreadsheets in Google Drive
+  scope: "https://www.googleapis.com/auth/spreadsheets"
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,

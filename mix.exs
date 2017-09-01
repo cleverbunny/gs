@@ -20,7 +20,7 @@ defmodule Gs.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: []]
+    [extra_applications: [:goth]]
   end
 
   defp package() do
@@ -46,7 +46,8 @@ defmodule Gs.Mixfile do
       {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:poison, "~> 3.1"},
-      {:httpoison, "~> 0.13"}
+      {:httpoison, "~> 0.13"},
+      {:goth, "~> 0.4.0"}
     ]
   end
 end

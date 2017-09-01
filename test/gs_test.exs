@@ -2,19 +2,18 @@ defmodule GsTest do
   use ExUnit.Case
   doctest Gs
 
-  test "the truth" do
-    spreadsheet_id = "1Fl6DYfLWVu2P4vQha-ejV4tXWENSbGFNSeopqCajKoo"
-    range = "Sheet1!A1:E1"
-    body = %{body: %{
-              range: range,
-              majorDimension: "ROWS",
-              values: [
-                  ["Door", "$15", "2", "3/15/2016"],
-                  ["Engine", "$100", "1", "3/20/2016"],
-                ],
-             }
-    }
+  test "Can post to spreadsheet id" do
+    row =
+      %Gs.Row{
+        range: "Sheet3!A1",
+        gs_id: "1Fl6DYfLWVu2P4vQha-ejV4tXWENSbGFNSeopqCajKoo",
+        values: [
+          ["Keith", "crazy", "2", "3/15/2016", "hello"],
+          ["Tanya", "crazy", "1", "3/20/2016"],
+        ]
+      }
 
-    assert Gs.post(spreadsheet_id, range, body) == :ok
+    {:ok, response} = Gs.append(row)
+    assert response.status_code == 200
   end
 end
