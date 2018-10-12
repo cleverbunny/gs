@@ -46,7 +46,7 @@ defmodule Gs.Mixfile do
       {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:poison, "~> 3.1"},
-      {:httpoison, "~> 0.13"},
+      {:httpoison, "~> 1.0"},
       {:goth, "~> 0.4.0"}
     ]
   end
