@@ -3,11 +3,11 @@
 use Mix.Config
 
 config :goth,
-  json: "config/gs_config.json" |> Path.expand |> File.read!
+  json: "config/gs_config.json" |> Path.expand() |> File.read!()
 
 config :gs,
   sheets_url: "https://sheets.googleapis.com/v4/spreadsheets",
-#Scope to view and manage your spreadsheets in Google Drive
+  # Scope to view and manage your spreadsheets in Google Drive
   scope: "https://www.googleapis.com/auth/spreadsheets"
 
 # This configuration is loaded before any dependency and is restricted
